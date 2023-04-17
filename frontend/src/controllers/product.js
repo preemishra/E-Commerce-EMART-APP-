@@ -1,4 +1,7 @@
 import {
+  getUserFromDb,
+  deleteUserFromDb,
+  searchUserFromDb,
   getProductFromDb,
   searchProductFromDb,
   getSingleProductFromDb,
@@ -6,12 +9,39 @@ import {
 import { CartItemsStore } from "./store";
 // get all products
 class Product {
+  async allUser() {
+    try {
+      let userData = await getUserFromDb();
+      return await userData;
+    } catch (error) {
+      throw new error
+    }
+  }
+
+  async deleteUser(id) {
+    try {
+      let userData = await deleteUserFromDb(id);
+      return await userData;
+    } catch (error) {
+      throw new error
+    }
+  }
+
+  async searchUser(id) {
+    try {
+      let userData = await searchUserFromDb(id);
+      return await userData;
+    } catch (error) {
+      throw new error
+    }
+  }
+
   async allProduct() {
     try {
       let productData = await getProductFromDb();
       return await productData;
     } catch (error) {
-      console.log(error);
+      throw new error
     }
   }
 
@@ -19,7 +49,9 @@ class Product {
     try {
       let search = await searchProductFromDb(searchData);
       return await search;
-    } catch (error) {}
+    } catch (error) {
+      throw new error
+    }
   }
 
   async singleProductData(id) {
@@ -27,7 +59,7 @@ class Product {
       let singleProduct = await getSingleProductFromDb(id);
       return await singleProduct;
     } catch (error) {
-      console.log(error);
+      throw new error
     }
   }
 
@@ -53,7 +85,7 @@ class Product {
         }
       }
     } catch (error) {
-      console.log(error);
+      throw new error
     }
   }
 
@@ -72,7 +104,7 @@ class Product {
         }
       
     } catch (error) {
-      console.log(error);
+      throw new error
     }
   }
 
@@ -87,7 +119,7 @@ class Product {
           }
         }
     } catch (error) {
-      console.log(error);
+      throw new error
     }
 }
 
@@ -107,7 +139,7 @@ class Product {
       console.log(cartItems);
       return await cartItems;
     } catch (error) {
-      console.log(error);
+      throw new error
     }
   }
 }

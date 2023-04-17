@@ -165,7 +165,9 @@ exports.deleteAddress = async (req, res, next) => {
 };
 
 exports.getAllUsers = async (req, res) => {
-  if (!(await checkForAdmin("preeti@indx.ai"))) {
+  
+  const loggedInUserEmail=req.headers.email;
+  if (!(await checkForAdmin(loggedInUserEmail))) {
     return res.status(401).json({
       status: false,
       message: "Only Admin Is Allowed",

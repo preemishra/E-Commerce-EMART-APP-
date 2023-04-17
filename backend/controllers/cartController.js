@@ -2,6 +2,7 @@ const {
   createCartServices,
   getAllProductFromCartServices,
   deleteCartProductServices,
+  createUserCartService,
 } = require("../services/cartService");
 const Validation = require("../utils/validations");
 const validationClass = new Validation.Validation();
@@ -27,6 +28,23 @@ exports.createCart = async (req, res, next) => {
     return res.status(500).json({ status: false, message: error.message });
   }
 };
+///////////////////////////cart
+exports.createUserCart=async(req,res)=>{
+  try {
+    const body=req.body;
+    const cart=await createUserCartService(req.body);
+    if (cart) {
+      res.status(200).send({
+        status: true,
+        message: "cart created successfully",
+      });
+    } else {
+      return res.status(400).send(cart);
+    }
+  } catch (error) {
+    return res.status(500).json({ status: false, message: error.message });
+  }
+}
 
 exports.getAllProductFromCart = async (req, res, next) => {
   let id = req.params.id;

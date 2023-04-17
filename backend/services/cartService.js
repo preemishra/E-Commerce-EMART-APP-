@@ -22,13 +22,25 @@ exports.createCartServices = async (bodyData) => {
       const cartDetailsResp = await db.cartDetail.create(cart_details, {
         transaction: t,
       });
+      
     });
     return true;
   } catch (e) {
     throw Error(e);
   }
 };
-
+///////////////////////////cart
+exports.createUserCartService=async(body)=>{
+  try {
+    const [cartInfo, created] = await db.cart.findOrCreate({
+      where: {user_id:body.user_id,created_by:body.loggedInUserEmail,updated_by:body.loggedInUserEmail},
+    });
+    return true
+  } catch (error) {
+    console.log(error)
+    throw Error(error);
+  }
+}
 exports.getAllProductFromCartServices = async (id) => {
   try {
     const result = await db.cart.findAll({

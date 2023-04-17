@@ -16,14 +16,14 @@ import MyProfile from "../views/MyProfile.svelte";
 import MyOrders from "../views/MyOrders.svelte";
 import ChangePassword from "../views/ChangePassword.svelte";
 
-// import AddProduct from "../views/AddProduct.svelte";
+import AdminDashboard from "../views/AdminDashboard.svelte";
 import PaymentSuccess from "../views/PaymentSuccess.svelte";
 import Search from "../components/Search.svelte";
 import SingleProduct from "../components/singleProduct/SingleProduct.svelte"
 export const routes = {
     "/" : Dashboard,
     "/seller/dashboard" : SellerDashboard,
-    "/about" : About,
+    "/about" : AdminDashboard,
     "/cart" : Cart,
     "/cart/buy" : OrderSummary,
     "/cart/buy/address": Address,
