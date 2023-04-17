@@ -21,7 +21,7 @@
     <h3><b>MY PROFILE</b></h3>
     <div class="form-outline">
       <!-- svelte-ignore a11y-label-has-associated-control -->
-      <label class="form-label">Full Name :</label>
+      <label class="form-label">Full Name <span>*</span>:</label>
       <input
         type="text"
         placeholder="Enter First Name + Last Name"
@@ -84,5 +84,8 @@
   }
   .btn-myStyle:hover {
     background-color: #63696c;
+  }
+  span{
+    color: red;
   }
 </style>

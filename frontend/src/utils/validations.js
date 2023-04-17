@@ -12,9 +12,9 @@ export let validateEmail = (mail) => {
 };
 
 // Function to validate the phone number
-export let validatePhoneNumber = (input) => {
+export let validatePhoneNumber = (field) => {
   var regex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
-  return regex.test(input);
+  return regex.test(field);
 };
 
 // Function to validate the zip code
@@ -29,13 +29,13 @@ export let isZipNumber = (zip) => {
 };
 
 // Function to validate the password
-export let checkPassword = (str) => {
+export let checkPassword = (password) => {
   if (
-    str.length < 8 ||
-    str.length > 50 ||
-    str.search(/\d/) == -1 ||
-    str.search(/[a-zA-Z]/) == -1 ||
-    str.search(/[^a-zA-Z0-9\!\@\#\$\%\^\&\*\(\)\_\+\.\,\;\:]/) != -1
+    password.length < 8 ||
+    password.length > 50 ||
+    password.search(/\d/) == -1 ||
+    password.search(/[a-zA-Z]/) == -1 ||
+    password.search(/[^a-zA-Z0-9\!\@\#\$\%\^\&\*\(\)\_\+\.\,\;\:]/) != -1
   ) {
     return false;
   } else {
